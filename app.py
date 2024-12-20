@@ -1,7 +1,7 @@
 from flask import Flask,request,render_template
 import requests
 app=Flask(__name__)
-api_key="92dc33d47ccd777fc0e46c7c45e976f6"
+api_key="api"
 url=f"https://api.openweathermap.org/data/2.5/weather/"
 @app.route("/")
 def home():
