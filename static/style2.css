@@ -1,0 +1,47 @@
+body {
+    background-image: url(https://media.istockphoto.com/id/1279011240/photo/supercell-thunderstorm-with-dramatic-storm-clouds.webp?a=1&b=1&s=612x612&w=0&k=20&c=7QvtbVup97f5nD1oBqqXKUxOOJqfsj8NMT6xYdQ6c20=);
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.card {
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 15vh;
+}
+
+.card-header {
+    background-color: #28a745;
+    color: white;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 1.5vw;
+}
+
+.card-body {
+    background-color: #ffffff;
+}
+
+.btn-back {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-back:hover {
+    background-color: #0b5ed7;
+    color: white;
+}
+
+.sunrise{
+    display: flex;
+    gap: 0.2vw;
+}

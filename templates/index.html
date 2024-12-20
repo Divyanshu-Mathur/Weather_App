@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEJ6H7NwKJ7OFXmG9vHb5iDgEdQ14ZBzRl+ORRG5CXK1Hg3VJzssixuFH71n6" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style1.css">
+</head>
+
+<body style="margin: 0;padding: 0;">
+    <div class="container" >
+        <div class="row justify-content-center">
+            <div class="col-md-6" >
+                <div class="card">
+                    <div class="card-header text-center" style="background-color: #007bff;">
+                        <img src=/static/logo.svg width="50" alt="">
+                        <h2>Weather Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="/weather" method="POST">
+                            <div class="mb-3">
+                                <label for="city" class="form-label">Enter City Name</label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="E.g., Mumbai"
+                                    required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Get Weather</button>
+                        </form>
+                        {% if error %}
+                        <p class="error-message mt-3">{{ msg }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
