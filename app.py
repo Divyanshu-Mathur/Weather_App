@@ -1,7 +1,9 @@
 from flask import Flask,request,render_template
+from datetime import datetime
 import requests
 app=Flask(__name__)
 api_key="92dc33d47ccd777fc0e46c7c45e976f6"
+current_date_time = datetime.now()
 url=f"https://api.openweathermap.org/data/2.5/weather/"
 @app.route("/")
 def home():
@@ -11,7 +13,7 @@ def home():
 def get_weather():
     if request.method == 'POST':
         city = request.form.get('city')
-        url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}"
+        url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
         response = requests.get(url)
         data=response.json()
         if data['cod']==404:
@@ -24,9 +26,11 @@ def get_weather():
                 'icon': data['weather'][0]['icon'],
                 'humidity':data['main']['humidity'],
                 'wind_speed':data['wind']['speed'],
-                'sunrise':data['sys']['sunrise'],
-                'sunset':data['sys']['sunset'],
+                'sunrise':datetime.fromtimestamp(data['sys']['sunrise']).strftime('%H:%M:%S'),
+                'sunset':datetime.fromtimestamp(data['sys']['sunset']).strftime('%H:%M:%S'),
+                'formatted_date_time' : current_date_time.strftime("%Y-%m-%d %H:%M:%S")
             }
+            print(weather)
             return render_template('weather.html',weather=weather)
         else:
             return render_template('error.html',msg="City Not Found")
