@@ -2,7 +2,7 @@ from flask import Flask,request,render_template
 from datetime import datetime
 import requests
 app=Flask(__name__)
-api_key="api"
+api_key="92dc33d47ccd777fc0e46c7c45e976f6"
 url=f"https://api.openweathermap.org/data/2.5/weather/"
 @app.route("/")
 def home():
@@ -26,8 +26,7 @@ def get_weather():
                 'humidity':data['main']['humidity'],
                 'wind_speed':data['wind']['speed'],
                 'sunrise':datetime.fromtimestamp(data['sys']['sunrise']).strftime('%H:%M:%S'),
-                'sunset':datetime.fromtimestamp(data['sys']['sunset']).strftime('%H:%M:%S'),
-                'formatted_date_time' : current_date_time.strftime("%Y-%m-%d %H:%M:%S")
+                'sunset':datetime.fromtimestamp(data['sys']['sunset']).strftime('%H:%M:%S')
             }
             print(weather)
             return render_template('weather.html',weather=weather)
